@@ -1,0 +1,13 @@
+{
+  "name": "Small Steps",
+  "short_name": "Small Steps",
+  "start_url": "https://determined-colden-bceb71.netlify.com/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Small Steps",
+  "icons": [{
+    "src": "images/touch/homescreen48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }]
+}
