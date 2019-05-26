@@ -3,10 +3,10 @@
   "short_name": "Small Steps",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#3b9b9e",
   "description": "Small Steps",
   "icons": [{
-    "src": "images/touch/homescreen48.png",
+    "src": "images/footprintsmall.png",
     "sizes": "48x48",
     "type": "image/png"
   }]

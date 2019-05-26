@@ -1,5 +1,4 @@
 <template>
-<div>
   <div style="width: 100%; height: 100%">
     <div class="swipe-wrapper">
       <div v-for="goal in goals" :key="goal.Id" :data-id="goal.TaskId" class="demo__card">
@@ -15,7 +14,6 @@
           <i class="fas fa-question"></i>
         </div>
       </div>
-    </div>
     </div>
     <v-btn block class="mt-4" color="success" @click="getStarted">Let's go!</v-btn>
     <v-dialog v-model="isEditorOpen" fullscreen hide-overlay transition="dialog-bottom-transition">
@@ -111,17 +109,17 @@ var deg = 0;
 var $card, $cardReject, $cardLike;
 
 let blankEditor = {
-        name: "",
-        weekday: {
-          monday: false,
-          tuesday: false,
-          wednesday: false,
-          thursday: false,
-          friday: false,
-          saturday: false,
-          sunday: true
-        }
-      };
+  name: "",
+  weekday: {
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+    sunday: true
+  }
+};
 
 export default {
   name: "GoalPicker",
@@ -141,17 +139,8 @@ export default {
           sunday: false
         }
       },
-      howLongWeeks: [
-          "1 week",
-          "2 weeks",
-          "3 weeks",
-          "4 weeks"
-      ],
-      when: [
-          "Morning",
-          "Afternoon",
-          "Evening"
-      ]
+      howLongWeeks: ["1 week", "2 weeks", "3 weeks", "4 weeks"],
+      when: ["Morning", "Afternoon", "Evening"]
     };
   },
   mounted() {
@@ -249,9 +238,8 @@ export default {
     openEditor(id) {
       if (!id) return;
 
-
       var goal = store.db.Tasks.find(t => t.TaskId === id);
-      this.editor = {...blankEditor};
+      this.editor = { ...blankEditor };
       this.editor.name = goal.TaskDescription;
       this.isEditorOpen = true;
     },
@@ -287,7 +275,7 @@ export default {
 <style>
 .swipe-wrapper {
   position: relative;
-  height: 80%;
+  height: 75vh;
 }
 
 .demo {
