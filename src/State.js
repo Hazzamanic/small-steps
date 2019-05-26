@@ -63,6 +63,9 @@ export default new Vue({
     computed: {
         goalsForSelectedCategories() {
             return this.db.Tasks.filter(t => this.selectedCategories.includes(t.CategoryId));
+        },
+        activeGoals() {
+            return this.goals.filter(g => g.complete === false);
         }
     },
     methods: {
@@ -73,7 +76,16 @@ export default new Vue({
             this.selectedCategories = selected;
         },
         addGoal(task) {
+            task.complete = false;
+            task.id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             this.goals.push(task)
+        },
+        addGoals(goals) {
+            for(let g in goals) {
+                g.complete = false;
+                g.id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                this.goals.push(g);
+            }
         }
     }
         

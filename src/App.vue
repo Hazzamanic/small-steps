@@ -8,7 +8,9 @@
       <GoalPicker v-if="page === 'picker'"/>
       <Settings v-if="page === 'settings'" />
       <Journey v-if="page === 'journey'" />
-      <v-bottom-nav v-show="isNavVisible" :active="page" :value="true" absolute color="transparent">
+      
+    </v-container>
+      <v-bottom-nav v-show="isNavVisible" :active="page" :value="true" fixed color="white">
         <v-btn @click="setPage('goals')" color="teal" flat value="goals">
           <span>Goals</span>
           <v-icon>home</v-icon>
@@ -24,7 +26,6 @@
           <v-icon>pets</v-icon>
         </v-btn>
       </v-bottom-nav>
-    </v-container>
   </v-app>
 </template>
 

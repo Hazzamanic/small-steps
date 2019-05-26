@@ -4,6 +4,7 @@
   bottom: 0;
   display: none;
   left: 0;
+  width: 50%;
 }
 
 .foot-right {
@@ -13,7 +14,7 @@
 }
 
 #foot-cont {
-  width: 500px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -33,7 +34,7 @@ var printCount = 12;
 var printOffset = 200;
 var isLeft = true;
 
-function printFoot(times, added = false) {
+function printFoot(times, added = false, immediate = false) {
   console.log(times);
   if (times <= 0) {
     return;
@@ -56,21 +57,34 @@ function printFoot(times, added = false) {
   if (!isLeft) {
     newFoot.addClass("foot-right");
   }
+  if(!immediate){
   $(newFoot)
     .hide()
     .appendTo("#foot-cont")
     .fadeIn(300);
-  $("#foot-cont").height($("#foot-cont").height() + printOffset);
+          $("#foot-cont").height($("#foot-cont").height() + printOffset);
+  $("#foot-cont").scrollTop(0);
+
+  }else{
+    $(newFoot).appendTo("#foot-cont").show();
+      $("#foot-cont").height($("#foot-cont").height() + printOffset);
   $("#foot-cont").scrollTop(printOffset, { duration: 0 });
   $("#foot-cont").scrollTop(0, { duration: 200 });
+
+  }
 
   $("#foot-cont img").each(function(id, el) {
     $(el).css("bottom", $(el).attr("data-bottom"));
   });
 
+if(!immediate){
   setTimeout(function() {
-    printFoot(--times, added);
+    printFoot(--times, added, immediate);
   }, 500);
+}else{
+      printFoot(--times, added, immediate);
+
+}
 }
 
 printFoot(printCount);
@@ -81,6 +95,10 @@ function addNewFootprints(count) {
 }
 
 export default {
-  name: 'journey'
+  name: 'Journey',
+  mounted() {
+    printFoot(10, false, true);
+    addNewFootprints(2);
+  }
 }
 </script>

@@ -108,6 +108,19 @@ var pullDeltaX = 0;
 var deg = 0;
 var $card, $cardReject, $cardLike;
 
+let blankEditor = {
+        name: "",
+        weekday: {
+          monday: false,
+          tuesday: false,
+          wednesday: false,
+          thursday: false,
+          friday: false,
+          saturday: false,
+          sunday: true
+        }
+      };
+
 export default {
   name: "GoalPicker",
   data() {
@@ -233,7 +246,10 @@ export default {
   methods: {
     openEditor(id) {
       if (!id) return;
+
+
       var goal = store.db.Tasks.find(t => t.TaskId === id);
+      this.editor = {...blankEditor};
       this.editor.name = goal.TaskDescription;
       this.isEditorOpen = true;
     },
