@@ -1,11 +1,13 @@
 <template>
   <v-app id="app">
+      <Map v-if="page === 'map'" />
     <v-container fluid>
       <WelcomeScreen v-if="page === 'welcome'" />
       <GoalList v-if="page === 'goals'"/>
       <CategoriesList v-if="page === 'categories'"/>
       <GoalPicker v-if="page === 'picker'"/>
       <Settings v-if="page === 'settings'" />
+      <Journey v-if="page === 'journey'" />
       <v-bottom-nav v-show="isNavVisible" :active="page" :value="true" absolute color="transparent">
         <v-btn @click="setPage('goals')" color="teal" flat value="goals">
           <span>Goals</span>
@@ -33,6 +35,8 @@ import CategoriesList from "./components/CategoriesList.vue";
 import GoalPicker from "./components/GoalPicker.vue";
 import WelcomeScreen from "./components/WelcomeScreen.vue";
 import Settings from "./components/Settings";
+import Journey from "./components/Journey";
+import Map from "./components/Map";
 
 export default {
   name: "app",
@@ -60,7 +64,9 @@ export default {
     CategoriesList,
     GoalPicker,
     WelcomeScreen,
-    Settings
+    Settings,
+    Journey,
+    Map
   }
 };
 </script>

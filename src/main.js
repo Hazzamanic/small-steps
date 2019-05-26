@@ -22,6 +22,8 @@ Vue.use(Vuetify, {
   }
 })
 
+
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')
