@@ -5,6 +5,7 @@
       <GoalList v-if="page === 'goals'"/>
       <CategoriesList v-if="page === 'categories'"/>
       <GoalPicker v-if="page === 'picker'"/>
+      <Settings v-if="page === 'settings'" />
       <v-bottom-nav v-show="isNavVisible" :active="page" :value="true" absolute color="transparent">
         <v-btn @click="setPage('goals')" color="teal" flat value="goals">
           <span>Goals</span>
@@ -12,8 +13,8 @@
         </v-btn>
 
         <v-btn @click="setPage('settings')" color="teal" flat value="settings">
-          <span>Favorites</span>
-          <v-icon>favorite</v-icon>
+          <span>Settings</span>
+          <v-icon>settings</v-icon>
         </v-btn>
 
         <v-btn @click="setPage('journey')" color="teal" flat value="journey">
@@ -31,6 +32,7 @@ import GoalList from "./components/GoalList.vue";
 import CategoriesList from "./components/CategoriesList.vue";
 import GoalPicker from "./components/GoalPicker.vue";
 import WelcomeScreen from "./components/WelcomeScreen.vue";
+import Settings from "./components/Settings";
 
 export default {
   name: "app",
@@ -57,7 +59,8 @@ export default {
     GoalList,
     CategoriesList,
     GoalPicker,
-    WelcomeScreen
+    WelcomeScreen,
+    Settings
   }
 };
 </script>
