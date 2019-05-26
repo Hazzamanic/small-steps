@@ -1,4 +1,5 @@
 <template>
+<div>
   <div style="width: 100%; height: 100%">
     <div class="swipe-wrapper">
       <div v-for="goal in goals" :key="goal.Id" :data-id="goal.TaskId" class="demo__card">
@@ -14,6 +15,7 @@
           <i class="fas fa-question"></i>
         </div>
       </div>
+    </div>
     </div>
     <v-btn block class="mt-4" color="success" @click="getStarted">Let's go!</v-btn>
     <v-dialog v-model="isEditorOpen" fullscreen hide-overlay transition="dialog-bottom-transition">
