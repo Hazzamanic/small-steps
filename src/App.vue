@@ -1,8 +1,8 @@
 <template>
   <v-app id="app">
       <Map v-if="page === 'map'" />
-    <v-container fluid>
       <WelcomeScreen v-if="page === 'welcome'" />
+    <v-container fluid>
       <GoalList v-if="page === 'goals'"/>
       <CategoriesList v-if="page === 'categories'"/>
       <GoalPicker v-if="page === 'picker'"/>

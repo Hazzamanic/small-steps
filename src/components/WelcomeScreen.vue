@@ -1,45 +1,64 @@
 <template>
   <div class="welcome-screen">
-    <v-container>
-      <div class="slider"></div>
+    <div class="container">
+      <div class="slider">
+        
+      </div>
       <div class="welcome-cta">
-        Just one small step at a time...
-        <div>
-          <v-btn @click="start" color="red">Get Started</v-btn>
+        <h1 class="text-xs-center">Small Steps</h1>
+        <div class="button-cont pt-5">
+          <v-btn @click="start" light color="rgb(54, 132, 135)" style="color: white">Get Started</v-btn>
         </div>
       </div>
-    </v-container>
+    </div>
   </div>
 </template>
 
 <script>
-import store from '../State';
+import store from "../State";
 
 export default {
   name: "WelcomeScreen",
   methods: {
-      start() {
-          store.setPage('categories')
-      }
+    start() {
+      store.setPage("categories");
+    }
   }
 };
 </script>
 
 <style>
 .welcome-screen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
   height: 100vh;
-  background-color: green;
+  background-color: #3b9b9e;
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
-
-.slider {
-  height: 60vh;
-}
-
 .welcome-cta {
+  padding-top: 20px;
   text-align: center;
+}
+
+.welcome-screen .container {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-screen button.v-btn.theme--light.red {
+  margin-top: 30px;
+}
+
+.welcome-screen h1.text-xs-center {
+  padding-top: 15vh;
+  font-size: 5em;
+  color: white;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
 }
 </style>

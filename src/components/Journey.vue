@@ -79,4 +79,8 @@ function addNewFootprints(count) {
   $("#foot-cont img").removeClass("added");
   printFoot(count, true);
 }
+
+export default {
+  name: 'journey'
+}
 </script>
