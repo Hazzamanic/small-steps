@@ -1,7 +1,7 @@
 
 <template>
   <div>      
-    <div style="height:500px; width:500px;">
+    <div style="height:calc(100vh - 56px); width:100vw">
       <div id="map"></div>
     </div>
   </div>
